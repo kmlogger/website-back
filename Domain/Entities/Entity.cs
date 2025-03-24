@@ -2,7 +2,7 @@ using Flunt.Notifications;
 
 namespace Domain.Entities;
 
-internal abstract class Entity : Notifiable<Notification>
+public abstract class Entity : Notifiable<Notification>
 {
     public Guid Id { get; private set; }
     public DateTime? CreatedDate { get;  private set; }

@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Application.DI;
-using Infrastructure.Data.Hot;
 using Infrastructure.Data.Cold;
 
 namespace Presentation.Common.Api;
@@ -21,14 +20,12 @@ public  static class BuilderExtensions
     public static void AddConfiguration(
         this WebApplicationBuilder builder)
     {
-        var projectRoot = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\.."));
         Configuration.IsDevelopment = builder.Environment.IsDevelopment();
         Configuration.JwtKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? string.Empty;
         Configuration.BackendUrl = Environment.GetEnvironmentVariable("BACKEND_URL") ?? string.Empty;
         Configuration.VersionApi = Environment.GetEnvironmentVariable("VERSION_API") ?? string.Empty;
         Configuration.ApiKey = Environment.GetEnvironmentVariable("API_KEY") ?? string.Empty;
-        Configuration.ConnectionStringClickHouse = Environment.GetEnvironmentVariable("CLICKHOUSE_CONNECTION_STRING") ?? string.Empty;
-        Configuration.SqliteConnectionString = "Data Source=" + Path.GetFullPath(Path.Combine(projectRoot, "Infrastructure", "dbkmlogger.db"));
+        Configuration.ConnectionStringPostgres = Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? string.Empty;
         Configuration.ApiKeyAttribute = "X-API-KEY";
         Configuration.FrontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:4200";
         Configuration.SmtpUser = Environment.GetEnvironmentVariable("SMTP_USER") ?? string.Empty;
@@ -83,11 +80,7 @@ public  static class BuilderExtensions
     {
         builder
             .Services
-            .AddDbContext<HotDbContext>(
-                x => { x.UseSqlite(Configuration.SqliteConnectionString); });
-        builder
-            .Services
-            .AddDbContext<ColdDbContext>(
+            .AddDbContext<KMLoggerDbContex>(
                 x => { x.UseNpgsql(Configuration.SqliteConnectionString); });
     }
 

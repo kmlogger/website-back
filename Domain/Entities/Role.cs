@@ -3,7 +3,7 @@ using Domain.ValueObjects;
 
 namespace Domain.Entities;
 
-internal  class Role : Entity
+public class Role : Entity
 {
     public UniqueName Name { get; private set; }
     public string Slug { get; private set; }

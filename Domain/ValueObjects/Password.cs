@@ -5,7 +5,7 @@ using Flunt.Br;
 
 namespace Domain.ValueObjects;
 
-internal sealed class Password : BaseValueObject
+public sealed class Password : BaseValueObject
 {
     public string Hash { get; private set; }
     public string Salt { get; private set; }

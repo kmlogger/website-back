@@ -24,10 +24,7 @@ public  class Handler : IRequestHandler<Request, BaseResponse>
      public async Task<BaseResponse> Handle(Request request, CancellationToken cancellationToken)
      {
           var userFromDb = await _userRepository.GetByEmail(request.Email, cancellationToken);
-          if (userFromDb == null)
-          {
-               return new BaseResponse(404,"User not found");
-          }
+          if (userFromDb is null) return new BaseResponse(404,"User not found");
           
           userFromDb.GenerateNewToken();
           _userRepository.Update(userFromDb);

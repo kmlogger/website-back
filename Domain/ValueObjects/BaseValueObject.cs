@@ -3,7 +3,7 @@ using Flunt.Notifications;
 
 namespace Domain.ValueObjects;
 
-internal abstract class BaseValueObject : Notifiable<Notification>
+public abstract class BaseValueObject : Notifiable<Notification>
 {
     protected string  Key { get; }
     [NotMapped]

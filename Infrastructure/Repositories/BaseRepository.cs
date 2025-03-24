@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-internal abstract class BaseRepository<T>(DbContext context)
+public abstract class BaseRepository<T>(DbContext context)
     : IBaseRepository<T>
     where T : Entity
 {

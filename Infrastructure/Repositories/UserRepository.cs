@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.Cold;
 
-public class UserRepository(ColdDbContext context) 
+public class UserRepository(KMLoggerDbContex context) 
     : BaseRepository<User>(context), IUserRepository
 {
     public async Task<bool> Authenticate(User user, CancellationToken cancellationToken)

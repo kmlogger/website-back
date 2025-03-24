@@ -1,6 +1,6 @@
 namespace Domain;
 
-internal static class Configuration
+public static class Configuration
 {
     public const int DefaultStatusCode = 200;
     public const int DefaultPageNumber = 1;
@@ -11,11 +11,14 @@ internal static class Configuration
     public static string SmtpServer { get; set; } = string.Empty;
     public static string JwtKey { get; set; } = string.Empty;
     public static int SmtpPort { get; set; } = 587;
-    public static string ConnectionStringClickHouse { get; set; } = string.Empty;
+    public static string ConnectionStringPostgres { get; set; } = string.Empty;
     public static string VersionApi { get; set; } = string.Empty;
     public static string SmtpUser { get; set; } = string.Empty;
     public static string SmtpPass { get; set; } = string.Empty;
     public static string AwsKeyId { get; set; } = string.Empty;
+    public static string BucketImages { get; set; } = string.Empty;
+    public static string AwsKeySecret {get; set;} = string.Empty;
+    public static string AwsRegion {get; set;} = string.Empty;
     public static string ApiKey { get; set; } = string.Empty;
     public static string ApiKeyAttribute { get; set; } = string.Empty;
     public static string SqliteConnectionString { get; set; } = string.Empty;    

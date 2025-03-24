@@ -11,7 +11,7 @@ using DbCommitHot = Domain.Interfaces.Repositories.Hot.IDbCommit;
 
 namespace Infrastructure.Repositories.Cold
 {
-    internal  class DbCommit(ColdDbContext context) : DbCommitCold
+    public class DbCommit(ColdDbContext context) : DbCommitCold
     {
         public async Task Commit(CancellationToken cancellationToken)
             => await context.SaveChangesAsync(cancellationToken);

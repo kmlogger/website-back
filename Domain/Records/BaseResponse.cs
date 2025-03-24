@@ -16,7 +16,7 @@ public record BaseResponse
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public dynamic Response { get; private set; } = null!;
 
-    public BaseResponse(int statuscode, string message, List<Notification>? notifications = null, dynamic response = null)
+    public BaseResponse(int statuscode, string message ="", List<Notification>? notifications = null, dynamic response = null)
     {
         this.message = message;
         this.statuscode = statuscode;
