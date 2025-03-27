@@ -18,7 +18,7 @@ public class Handler : IRequestHandler<Request, BaseResponse>
     }
     public async Task<BaseResponse> Handle(Request request, CancellationToken cancellationToken)
     {
-        if(await _companyRepository.GetCompanyByName(request.name, cancellationToken)
+        if(await _companyRepository.GetCompanyByName(request.name, cancellationToken) is not null
             ) return new BaseResponse(400, "Company already exists");
 
         var company = new Domain.Entities.Company(

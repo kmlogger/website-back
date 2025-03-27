@@ -4,9 +4,5 @@ using MediatR;
 
 namespace Application.UseCases.StandardSignature.Create;
 
-public record  Request(
-    Guid? CompanyId,
-    string? PlanName,
-    DateTime? StartDate, 
-    DateTime? EndDate
-) : IRequest<BaseResponse>;
+public record Request(Guid CompanyId, int MaxUsers, decimal PriceValue, string Currency)
+    : IRequest<BaseResponse>;
