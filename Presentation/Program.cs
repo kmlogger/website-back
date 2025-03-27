@@ -1,5 +1,6 @@
 
 using Domain;
+using Infrastructure.DI;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Presentation.Common.Api;
 
@@ -13,7 +14,7 @@ builder.WebHost.ConfigureKestrel(options =>
 builder.AddConfiguration();
 builder.AddSecurity();
 builder.AddCrossOrigin();
-builder.AddDataContexts();
+builder.Services.AddDbContext();
 builder.AddServices();
 
 var app = builder.Build();

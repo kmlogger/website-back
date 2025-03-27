@@ -75,15 +75,6 @@ public  static class BuilderExtensions
         });
         builder.Services.AddAuthorization();
     }
-
-    public static void AddDataContexts(this WebApplicationBuilder builder)
-    {
-        builder
-            .Services
-            .AddDbContext<KMLoggerDbContex>(
-                x => { x.UseNpgsql(Configuration.SqliteConnectionString); });
-    }
-
     public static void AddCrossOrigin(this WebApplicationBuilder builder)
     {
         builder.Services.AddCors(
@@ -126,6 +117,6 @@ public  static class BuilderExtensions
         });
         
         builder.Services.AppServices();
-        builder.Services.ConfigureInfraServices();
+        builder.Services.AddRepositories();
     }
 }

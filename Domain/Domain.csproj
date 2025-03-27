@@ -7,13 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="DocsBRValidator" Version="1.3.2" />
       <PackageReference Include="Flunt" Version="2.0.5" />
       <PackageReference Include="Flunt.br" Version="2.0.0" />
-      <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
-      <PackageReference Include="Grpc.Tools" Version="2.71.0">
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        <PrivateAssets>all</PrivateAssets>
-      </PackageReference>
     </ItemGroup>
 
       <!-- Permite que o projeto de testes acesse membros 'public ' do projeto de domínio -->

@@ -1,4 +1,4 @@
-namespace Domain.Interfaces.Repositories.Cold;
+namespace Domain.Interfaces.Repositories;
 
 public interface IDbCommit
 {
